@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="jumbotron text-center">
+        <h1>Agence Fidelis fraticinidas ducunt ad uria.</h1>
+        <p>Verpa, cotta, et abnoba.</p>
+    </div>
+
+    {% if properties is defined %}
+        <div class="container">
+            <h1>Les derniers biens</h1>
+                <div class="row flex">
+                    {% for property in properties %}
+                        <div class="col-3">
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">
+                                       <a href="{{ path('property.show', {id: property.id, slug: property.slugify}) }}">{{ property.title}}</a>
+                                    </h5>
+                                    <p class="card-text">{{ property.city }} ({{ property.postalCode() }})</p>
+                                    <p class="text-primary" style="font-weight: bold; font-size: 2rem;">{{ property.formattedPrice }} € </p>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+        </div>
+    {% endif %}
+{% endblock %}
