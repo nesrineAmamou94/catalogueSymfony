@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %} Gérer les biens {% endblock %}
+{% block body %}
+    <div class="jumbotron text-center">
+        <h1>Agence Fidelis fraticinidas ducunt ad uria.</h1>
+        <p>Verpa, cotta, et abnoba.</p>
+    </div>
+
+    {% if properties is defined %}
+        <div class="container mt-4">
+            <h1>Gérer les biens</h1>
+            <a class="btn btn-primary" href="{{ path('admin.property.create') }}"> Créer</a>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Titre</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for property in properties %}
+                    <tr>
+                        <td>{{ property.title }}</td>
+                        <td>
+                            <a class="btn btn-secondary" href="{{ path('admin.property.edit', {id: property.id, slug: property.slugify}) }}">Editer</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+{% endblock %}

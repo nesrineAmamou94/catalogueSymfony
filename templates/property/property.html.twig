@@ -2,7 +2,6 @@
 
 {% block title property.title %}
 {% block body %}
-
     <div class="jumbotron">
         <div class="row">
             <div class="col-md-8">
@@ -37,14 +36,12 @@
                         <td>Etages</td>
                         <td>{{ property.floor }}</td>
                     </tr>
-
                     {% if property.heatType is defined %}
                     <tr>
                         <td>Chauffage</td>
                         <td>{{ property.heatType }}</td>
                     </tr>
                     {% endif %}
-
                 </table>
             </div>
             <div class="col-md-4">

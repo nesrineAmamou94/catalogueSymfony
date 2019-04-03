@@ -13,3 +13,15 @@ property.index:
 property.show:
   path: /bien/{id}/{slug}
   controller: App\Controller\PropertyController::showProperty
+
+admin.property.show:
+  path: /admin/property
+  controller: App\Controller\Admin\AdminPropertyController::index
+
+admin.property.edit:
+  path: /admin/property/edit/{id}/{slug}
+  controller: App\Controller\Admin\AdminPropertyController::edit
+
+admin.property.create:
+  path: /admin/property/new
+  controller: App\Controller\Admin\AdminPropertyController::create
